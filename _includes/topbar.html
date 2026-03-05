@@ -46,18 +46,18 @@
 
     <div id="topbar-title">
       {% if page.layout == 'home' %}
-       <a href="/"> {{- site.data.locales[include.lang].title | default: site.title -}}</a>
+       <h2> <a href="/"> {{- site.data.locales[include.lang].title | default: site.title -}}</a></h2>
       {% elsif page.url contains '/about' %}
-            {{- site.data.locales[include.lang].tabs[tab_key] | default: page.title -}}
+           <h2> {{- site.data.locales[include.lang].tabs[tab_key] | default: page.title -}}</h2>
       {% elsif page.collection == 'tabs' or page.layout == 'page' %}
         {%- capture tab_key -%}{{ page.url | split: '/' }}{%- endcapture -%}
-       <a href="/"> {{- site.data.locales[include.lang].tabs[tab_key] | default: page.title -}}</a>
+     <h2>  <a href="/"> {{- site.data.locales[include.lang].tabs[tab_key] | default: page.title -}}</a></h2>
       {% elsif page.url contains '/categories' %}
-        <a href="/categories/">{{ site.title }}</a>
+      <h2>  <a href="/categories/">{{ site.title }}</a></h2>
       {% elsif page.url contains '/tags' %}
-        <a href="/tags/">{{ site.title }}</a>
+       <h2> <a href="/tags/">{{ site.title }}</a></h2>
       {% else %}
-        <a href="/">{{ site.title }}</a>
+        <h2><a href="/">{{ site.title }}</a></h2>
        <!-- {{- site.data.locales[include.lang].layout[page.layout] | default: page.layout | capitalize -}} -->
       {% endif %}
     </div>
